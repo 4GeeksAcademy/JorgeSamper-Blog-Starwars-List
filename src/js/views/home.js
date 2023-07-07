@@ -2,6 +2,7 @@ import React, { useContext } from "react";
 import "../../styles/home.css";
 import { Context } from "../store/appContext";
 import { useNavigate } from "react-router";
+import NotPicture from "../../img/NotPicture.jpg";
 
 export const Home = () => {
   const { store } = useContext(Context);
@@ -58,7 +59,10 @@ const Character = ({ type, character }) => {
     <span style={{ margin: "1rem", width: "18rem"}}>
       <div className="card" style={{ width: "18rem" }}>
         <img
-          src="https://taquilladecine.com/wp-content/uploads/2015/12/Curiosidades-de-la-saga-Star-Wars.jpg"
+          src={`https://starwars-visualguide.com/assets/img/${type}/${character.uid}.jpg`} 
+            onError={(e) => {
+              e.target.src = NotPicture
+            }}
           className="card-img-top"
           alt="image"
         />
