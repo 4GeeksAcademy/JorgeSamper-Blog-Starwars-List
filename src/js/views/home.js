@@ -54,17 +54,20 @@ const Character = ({ type, character }) => {
       id: type + character.uid,
     });
   };
+  
 
   return (
-    <span style={{ margin: "1rem", width: "18rem"}}>
+    <span style={{ margin: "0.7rem", width: "18rem" }}>
       <div className="card" style={{ width: "18rem" }}>
         <img
-          src={`https://starwars-visualguide.com/assets/img/${type}/${character.uid}.jpg`} 
-            onError={(e) => {
-              e.target.src = NotPicture
-            }}
+          src={`https://starwars-visualguide.com/assets/img/${type}/${character.uid}.jpg`}
+          onError={(e) => {
+            e.target.src = NotPicture;
+          }}
           className="card-img-top"
+          
           alt="image"
+          style={{ objectFit: "cover", height: "300px", width: "100%" }}
         />
         <div className="card-body">
           <h5 className="card-title">{character.name}</h5>
@@ -82,4 +85,5 @@ const Character = ({ type, character }) => {
       </div>
     </span>
   );
+  
 };
